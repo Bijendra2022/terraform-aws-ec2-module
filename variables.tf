@@ -1,6 +1,6 @@
 variable "ami_id" {
   type    = string
-  default = "ami-0ed9277fb7eb570c9"
+  default = "ami-068cda7597e78094b"
 }
 variable "instance_type" {
   type    = string
@@ -12,7 +12,7 @@ variable "associate_public_ip" {
 }
 variable "az" {
   type    = string
-  default = "us-east-1a"
+  default = "ap-south-1a"
 }
 variable "disable_api_termination" {
   type    = bool
@@ -28,11 +28,11 @@ variable "key" {
 }
 variable "sg" {
   type    = list(any)
-  default = ["sg-0858149edde4ae5ae"]
+  default = ["sg-01fce448a6f54bb61"]
 }
 variable "subnet_id" {
   type    = string
-  default = "subnet-03a2ea8c56ec8a1f2"
+  default = "subnet-030ba11113536d8a2"
 }
 variable "volume_size" {
   type    = number
