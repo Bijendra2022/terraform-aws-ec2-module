@@ -10,7 +10,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids      = data.aws_security_groups.sg.ids
   subnet_id                   = data.aws_subnet.selected.id
   user_data                   = file("${path.module}/user-data.sh")
-  hibernation = false
+  hibernation                 = false
   credit_specification {
     cpu_credits = "standard"
   }
@@ -38,7 +38,7 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_ebs_volume" "ebs_volume" {
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1a"
   size              = 10
   snapshot_id       = null
   type              = "gp2"
@@ -50,7 +50,7 @@ resource "aws_ebs_volume" "ebs_volume" {
 }
 
 resource "aws_volume_attachment" "ebs_attachment" {
-  device_name = "/dev/xvdf"
+  device_name = "/dev/sdb"
   volume_id   = aws_ebs_volume.ebs_volume.id
   instance_id = aws_instance.instance.id
 }
